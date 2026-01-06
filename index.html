@@ -1,66 +1,48 @@
 <!DOCTYPE html>
-<html><head>
-<meta charset="utf-8"/>
-<meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Convertway Inspector</title>
-<style>
-:root{--bg:#f7f7f8;--card:#fff;--muted:#6b7280;--brand:#1a56db;--text:#1f2937;}
-*{box-sizing:border-box}
-body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI;background:var(--bg);color:var(--text);}
-.wrap{width:400px;padding:8px;}
-h1{font-size:18px;font-weight:800;margin:0 0 6px;}
-#statusWrap{font-size:12px;color:var(--muted);margin-bottom:6px;}
-.card{background:var(--card);border-radius:10px;box-shadow:0 2px 6px rgba(2,6,23,0.06);padding:8px 10px;margin:6px 0;}
-.card h2{margin:0 0 6px;font-size:14px;color:var(--brand);}
-.value{font-size:13px;}
-button{width:100%;padding:10px 12px;font-size:14px;background:#2f6fed;color:#fff;border:none;border-radius:10px;margin-top:4px;cursor:pointer;}
-#stackContent{font-size:12px;}
-.inline{display:flex;gap:10px;align-items:center;}
-.inline input{width:80px;padding:6px;border:1px solid #e5e7eb;border-radius:8px;font-size:12px;}
-.small{font-size:11px;color:var(--muted);margin-top:4px;}
-.big-num{font-weight:700;font-size:18px;}
-.trend-wrap{margin-bottom:4px;}
-.trend{font-weight:700;font-size:12px;padding:2px 6px;border-radius:999px;background:#eef2ff;color:#1d4ed8;}
-.trend.down{background:#fee2e2;color:#b91c1c;}
-.bar-row{display:flex;align-items:center;gap:6px;margin:2px 0;}
-.bar-label{width:36px;font-size:12px;color:var(--muted);}
-.bar-track{flex:1;height:8px;background:#edf2f7;border-radius:6px;overflow:hidden}
-.bar-fill{display:block;height:100%;background:#60a5fa}
-.bar-val{width:92px;text-align:right;font-size:12px;}
-.muted{color:var(--muted);}
-.muted.red{color:#b91c1c;}
-</style>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
-<body><div class="wrap">
-  <h1>Convertway Inspector</h1>
-  <div id="statusWrap"></div>
+<body>
 
-  <div class="card"><h2>Shopify Rank</h2><div id="rank" class="value">—</div></div>
-  <div class="card"><h2>Traffic (Last 3 Months)</h2><div id="traffic" class="value">—</div></div>
+    <div class="dashboard">
+        <header>
+            <h1>Convertway Lead Traffic Inspector</h1>
+        </header>
 
-  <div class="card">
-    <h2>Estimated Orders (Latest Month)</h2>
-    <div class="inline" style="margin-bottom:4px;">
-      <label for="crInput" style="font-size:12px;">CR%:</label>
-      <input id="crInput" type="number" min="0.1" max="50" step="0.1" value="1.5"/>
+        <div class="main-content">
+            <form class="form">
+                <label for="shopify-rank">Shopify Rank</label>
+                <input type="text" id="shopify-rank" placeholder="Enter Shopify Rank">
+
+                <label for="traffic">Traffic (Last 3 Months)</label>
+                <input type="text" id="traffic" placeholder="Enter Traffic Data">
+
+                <label for="estimated-orders">Estimated Orders (Latest Month)</label>
+                <input type="number" id="estimated-orders" placeholder="Enter Orders">
+                <label for="cr">CR%</label>
+                <input type="text" id="cr" placeholder="Enter Conversion Rate">
+
+                <label for="aov">AOV</label>
+                <input type="text" id="aov" placeholder="Enter AOV">
+
+                <label for="location">Location</label>
+                <input type="text" id="location" placeholder="Enter Location">
+
+                <label for="potential-scale">Potential Scale</label>
+                <input type="text" id="potential-scale" placeholder="Enter Potential Scale">
+
+                <label for="checkout-solution">Checkout Solution</label>
+                <input type="text" id="checkout-solution" placeholder="Enter Checkout Solution">
+
+                <button type="submit" class="submit-btn">Open in Storeleads</button>
+            </form>
+        </div>
     </div>
-    <div id="orders" class="value">—</div>
-    <div id="revenue" class="small">—</div>
-    <div class="small">Orders = Latest visits × CR%</div>
-  </div>
 
-  <div class="card"><h2>AOV</h2><div id="aov" class="value">—</div></div>
-  <div class="card"><h2>Location</h2><div id="location" class="value">—</div></div>
-  <div class="card"><h2>Potential Scale</h2><div id="scale" class="value">—</div></div>
-  <div class="card"><h2>Checkout Solution</h2><div id="checkout" class="value">—</div></div>
-
-  <button id="openStoreleads">Open in Storeleads</button>
-
-  <div class="card">
-    <h2>Detected Stack</h2>
-    <div id="stackContent">—</div>
-    <div id="error" class="small"></div>
-  </div>
-</div>
-<script src="popup.js"></script>
-</body></html>
+    <script src="script.js"></script>
+</body>
+</html>
